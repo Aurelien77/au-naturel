@@ -1,0 +1,189 @@
+<html>
+
+<head>
+<title> Requete   </title> 
+<meta charset="utf-8">
+ <LINK rel="stylesheet" type="text/css" href="../../../css/tableau.css">
+</head>
+
+<body>
+<nav> <button type="button" class="mystyle1"  onclick="self.location.href='../../tf35r74i67r.php'" >
+Accueil
+
+    </button> <button type="button" class="mystyle1"  onclick="self.location.href='image.php'" >
+Rêves classés par images
+
+    </button>
+
+
+
+
+
+
+</nav>
+<div align="center">
+<form method="GET" action="">
+<label><h4>Entrer un numéro de rêve </h4></label>
+<input type="texte" name ="id" />
+
+<input type="submit" value="ok" />
+</form>
+<?php
+if(isset($_GET['id']))
+{
+$bdd = new PDO('mysql:host=aunatupma1830400.mysql.db;dbname=aunatupma1830400', 'aunatupma1830400', 'Neptune240984');
+
+$requete = $bdd->prepare("SELECT * FROM reves WHERE id = :id ");
+$requete->execute(array(
+'id' => $_GET['id'],
+
+));
+?>
+<table border="1">
+<?php
+while($resultat = $requete ->fetch())
+{
+?>
+<tr>
+<td>Numéro :<?php echo $resultat['id']; ?></td>
+<td>Nom :<?php echo $resultat['nom']; ?></td>
+<td>Catégorie : <?php echo $resultat['categories']; ?></td>
+
+</tr>
+<tr>
+<td> Date :<?php echo $resultat['date']; ?></td>
+
+<td>Description :<?php echo $resultat['reve']; ?></td>
+
+<td>Commentaire :<?php echo $resultat['commentaire']; ?></td>
+
+</tr>
+<?php
+}
+}
+?>
+
+
+</div>
+
+
+<table>  <tr> <th>   <h4> Modification d'un rêve  </h4>
+<form method="POST" action="">
+<input type="text" name="id" placeholder="ID  à modifier" /> <br />
+<input type="text" name="nom" placeholder="nom" /><br />
+<input type="text" name="reve" placeholder="Description" /><br />
+<input type="text" name="commentaire" placeholder="commentaire" /><br />
+<input type="date" name="date" placeholder="date" /><br />
+<input type="text" name="categories" placeholder="Catégories" /><br />
+<input type="submit" value="ok" />
+</form>
+<?php
+$bdd = new PDO('mysql:host=aunatupma1830400.mysql.db;dbname=aunatupma1830400', 'aunatupma1830400', 'Neptune240984');
+
+if(isset($_POST['nom']) AND isset($_POST['reve']) AND isset($_POST['commentaire']) AND isset($_POST['date']) AND isset($_POST['categories']) AND isset($_POST['id']))
+{
+
+
+$requete = $bdd->prepare("UPDATE 
+reves SET nom = ?, reve = ?, commentaire = ?, date = ?, categories = ? WHERE id = ?");
+$requete->execute(array($_POST['nom'], $_POST['reve'], $_POST['commentaire'], $_POST['date'], $_POST['categories'], $_POST['id']));
+?>
+
+<?php
+}
+
+?>
+
+</th> <th> <h4> Entrer un nouveau rêve  </h4>
+<form method="POST" action="">
+<input type="text" name="nom" placeholder="Nom" /><br />
+<input type="text" name="reve" placeholder="Descritpion" /><br />
+<input type="text" name="commentaire" placeholder="Commentaire" /><br />
+<input type="date" name="date" placeholder="Date" /><br />
+<input type="text" name="categories" placeholder="Catégories" /><br />
+<input type="submit" value="ok" />
+</form>
+<?php
+$bdd = new PDO('mysql:host=aunatupma1830400.mysql.db;dbname=aunatupma1830400', 'aunatupma1830400', 'Neptune240984');
+
+if(isset($_POST['nom']) AND isset($_POST['reve']) AND isset($_POST['commentaire']) AND isset($_POST['date']) AND isset($_POST['categories']))
+{
+
+
+$requete = $bdd->prepare("INSERT INTO reves(nom, reve, commentaire, date, categories) VALUES(?,?,?,?,?)");
+$requete->execute(array($_POST['nom'], $_POST['reve'], $_POST['commentaire'], $_POST['date'], $_POST['categories']));
+
+?>
+
+<?php
+}
+
+?>
+</th> </tr>
+
+<tr> <th colspan ="2">  <form method="GET" action="">
+<label><h4>Entrer une catégorie </h4></label>
+<input type="texte" name ="categories" placeholder="Entrer une catégorie"/>
+
+<input type="submit" value="ok" />
+</form>
+<?php
+if(isset($_GET['categories']))
+{
+$bdd = new PDO('mysql:host=aunatupma1830400.mysql.db;dbname=aunatupma1830400', 'aunatupma1830400', 'Neptune240984');
+
+$requete = $bdd->prepare("SELECT * FROM reves WHERE categories = :categories ");
+$requete->execute(array(
+'categories' => $_GET['categories'],
+
+));
+?>
+</th> <th colspan="2">
+<?php
+while($resultat = $requete ->fetch())
+{
+?> 
+<tr>
+<td>Le numéro du rêve :<?php echo $resultat['id']; ?></td>
+<td>Le nom :<?php echo $resultat['nom']; ?></td>
+<td>La déscritpion : <?php echo $resultat['categories']; ?></td>
+</tr>
+<tr>
+<td> </td>
+<td>La date :<?php echo $resultat['date']; ?></td>
+<td>Le rêve : <?php echo $resultat['reve']; ?></td>
+<td>Commentaire : <?php echo $resultat['commentaire']; ?></td>
+</tr>
+<?php
+}
+}
+?>  
+ <th>
+</tr>
+<tr>    
+<?php
+
+$bdd = new PDO('mysql:host=aunatupma1830400.mysql.db;dbname=aunatupma1830400', 'aunatupma1830400', 'Neptune240984');
+$requete = $bdd->query("SELECT categories FROM reves GROUP BY categories" );
+
+?>  </table>
+<table border="1">
+<?php
+while($resultat = $requete ->fetch())
+{
+?>
+
+<th><h4><?php echo $resultat['categories']; ?></h4></th>
+
+
+
+
+
+<?php
+}
+?>
+
+</table>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+ 
+table {
+  width: 100%;
+height:100%;
+ background: url("images/arbre.jpg");
+background-repeat: no-repeat;
+ background-position: top center;
+}
+
+@keyframe fondu {
+  from {
+    opacity:0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+ .ma_div {
+position: relative;
+top: -40px; left: -320px;
+
+}
+ 
+
+.ma_div_affiche {
+  transition-duration: 35s;
+  transform: translateX(250px);
+  animation-duration: 10s;
+  animation-name: fondu;
+
+}
+ 
+.ma_div_cache {
+  transition-duration: 1.5s;
+  transform: translateX(200px);
+}
+button {
+    border: hidden;
+  
+}
+
+body {
+color:white;
+background-image:url(images/etoile2.jpg);
+background-repeat:no-repeat;
+background-position:top;
+}
+

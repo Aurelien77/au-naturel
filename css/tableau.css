@@ -1,0 +1,31 @@
+table {
+border: medium solid red;
+width: 100%;
+}
+td, th {
+border: thin solid #6495ed;
+
+}
+
+h4 {
+ 
+  color: white;
+ font-size: 40px;
+text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+        0 0 0.2em #87F;
+}
+
+h5 {
+ 
+  color: white;
+ font-size: 25px;
+text-shadow: 0 0 0.2em #10A, 0 0 0.2em #10A,
+        0 0 0.2em #10A;
+}
+
+body {
+
+background-image:url(../images/4.jpg);
+background-repeat:no-repeat;
+background-size: cover;
+}

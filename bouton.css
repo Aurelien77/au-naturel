@@ -1,0 +1,40 @@
+h1 {
+ color:#AA0000;
+}
+
+
+body {
+color:white;
+background-image:url(images/racines2.jpg);
+background-repeat:no-repeat;
+background-position:center center;
+}
+
+
+INPUT {
+     color:#AA0000;
+     background-color:#AACC00; }
+.bouton_submit{
+ background-image:url(img_1.png);
+}
+ 
+.bouton_submit:hover{
+ background-image:url(img_2.png);
+}
+ 
+.bouton_submit:active{
+ background-image:url(img_3.png);
+}
+a
+{
+text-decoration: none; /* Les liens ne seront plus soulignés */
+color: #088A29; /* Les liens seront en rouge au lieu de bleu */
+font-size:24px
+}
+Ci-dessous, le texte du lien sera surligné en jaune, et coloré en vert quand on pointera dessus.
+a:hover
+{
+background-color: #0000FF;
+color: green;
+}
+

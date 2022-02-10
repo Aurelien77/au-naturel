@@ -1,0 +1,99 @@
+body 
+
+{  
+
+
+background-image: url(../images/2.jpg);
+
+ }
+
+
+ input[type=supprimer] {
+  width: 10px;
+  height: 10px;
+ 
+ 
+
+background-image: url(../images/2.jpg);
+color: white;
+  font-size: 14px;
+
+}
+
+.exemple {
+  align: center;
+  border: solid;
+margin: 0 auto;
+width:1890px;
+}
+
+input[type=submit] {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+ cursor:pointer;
+background-image: url(../images/2.jpg);
+color: white;
+  font-size: 14px;
+
+}
+
+input[type=file] {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+ cursor:pointer;
+background-image: url(../images/2.jpg);
+color: white;
+  font-size: 14px;
+
+}
+
+
+.up {
+background-image: url(../images/2.jpg;
+text-align: center;
+}
+
+input[type=button] {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+ cursor:pointer;
+background-image: url(../images/2.jpg);
+color: white;
+  font-size: 14px;
+
+}
+
+h1 {
+ 
+  color: white;
+}
+
+h2 {
+ 
+  color: white;
+}
+
+h3 {
+ 
+  color: white;
+}
+h8 {
+ 
+  color: white;
+ font-size: 40px;
+text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+        0 0 0.2em #87F;
+}
+h9 {
+ 
+  color: red;
+ font-size: 40px;
+text-shadow: 0 0 0.2em #87F, 0 0 0.2em #87F,
+        0 0 0.2em #87F;
+}
